@@ -1,0 +1,41 @@
+-- lua/plugins/neo-tree.lua
+return {
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons", -- optional, for file icons
+    },
+    cmd = "Neotree", -- Only load Neo-tree when the Neotree command is used
+    keys = {
+      { "<leader>e", "<Cmd>Neotree filesystem reveal toggle<CR>", desc = "Toggle Neo-tree File Explorer" },
+      { "<leader>b", "<Cmd>Neotree buffers reveal toggle<CR>", desc = "Toggle Neo-tree Buffers List" },
+      { "<leader>g", "<Cmd>Neotree git_status reveal toggle<CR>", desc = "Toggle Neo-tree Git Status" },
+    },
+    opts = {
+      close_if_last_window = false,
+      enable_git_status = true,
+      enable_diagnostics = true,
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = false,
+        },
+        use_libuv_file_watcher = true, -- Enable OS level file watchers for automatic refresh
+      },
+      buffers = {
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = false,
+        },
+      },
+      -- You can add more configuration here if desired, e.g., for icons, git status symbols, etc.
+      -- The default configuration is quite extensive, so often a minimal opts table is sufficient.
+    },
+    config = function(_, opts)
+      require("neo-tree").setup(opts)
+    end,
+  },
+}
