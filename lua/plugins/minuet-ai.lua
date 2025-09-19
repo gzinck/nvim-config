@@ -9,7 +9,7 @@ return {
       require("minuet").setup({
         -- Enable virtual text completion for better AI-assisted coding experience
         virtualtext = {
-          auto_trigger_ft = { "lua", "python", "javascript", "typescript", "go", "rust" },
+          auto_trigger_ft = { "lua", "tsx", "python", "javascript", "typescript", "go", "rust" },
           keymap = {
             -- Accept whole completion
             accept = "<A-A>",
