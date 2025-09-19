@@ -35,6 +35,11 @@ return {
       -- The default configuration is quite extensive, so often a minimal opts table is sufficient.
     },
     config = function(_, opts)
+      -- Add nvim-aider integration to Neo-tree if available
+      if pcall(require, "nvim_aider.neo_tree") then
+        require("nvim_aider.neo_tree").setup(opts)
+      end
+      
       require("neo-tree").setup(opts)
     end,
   },
