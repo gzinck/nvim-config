@@ -31,12 +31,27 @@ return {
       },
 
       -- (Default) Only show the documentation popup when manually triggered
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        -- Avoid unnecessary fetches to minuet AI model
+        trigger = { prefetch_on_insert = false },
+        documentation = { auto_show = false },
+      },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'minuet' },
+        providers = {
+          minuet = {
+            name = 'minuet',
+            module = 'minuet.blink',
+            async = true,
+            -- Should match minuet.config.request_timeout * 1000,
+            -- since minuet.config.request_timeout is in seconds
+            timeout_ms = 3000,
+            score_offset = 50, -- Gives minuet higher priority among suggestions
+          },
+        },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -46,6 +61,6 @@ return {
       -- See the fuzzy documentation for more information
       fuzzy = { implementation = "prefer_rust_with_warning" }
     },
-    opts_extend = { "sources.default" }
+    opts_extend = { "sources.default" },
   }
 }
