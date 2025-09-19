@@ -41,5 +41,14 @@ return {
       -- incremental_selection = { enable = true },
       -- textobjects = { enable = true },
     },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+
+      -- Compatibility fix for Telescope
+      local ts_utils = require("nvim-treesitter.ts_utils")
+      if not ts_utils.ft_to_lang then
+        ts_utils.ft_to_lang = require("nvim-treesitter.parsers").ft_to_lang
+      end
+    end,
   },
 }
