@@ -7,8 +7,8 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 ## Core Components
 * **Lazy.nvim**: Our plugin manager for efficient and declarative plugin loading.
 * **neo-tree.nvim**: A powerful and highly customizable file explorer plugin for navigating your project structure, managing files, and viewing git status and open buffers.
-* **AI Autocomplete**: (Details to be added)
-* **Aider Integration**: (Details to be added)
+* **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
+* **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
 
 ## Installation
 
@@ -44,13 +44,18 @@ This section documents all custom keybindings for the plugins used in this confi
 
 `nvim-treesitter` provides enhanced syntax highlighting and structural understanding automatically for supported languages. No specific keybindings are typically needed for its core functionality.
 
-### AI Autocomplete
+### AI Autocomplete (Minuet AI)
 
-(Keybindings to be added)
+| Keybinding    | Description             |
+| :------------ | :---------------------- |
+| `<Tab>`       | Trigger completion      |
+| `<C-Space>`   | Force completion menu   |
 
 ### Aider
 
-(Keybindings to be added)
+| Keybinding    | Description             |
+| :------------ | :---------------------- |
+| `(To be added)`| (To be added)           |
 
 ### Telescope
 
