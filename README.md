@@ -3,10 +3,11 @@
 This Neovim configuration is designed to provide a powerful development environment with a focus on AI-driven autocomplete and seamless integration with Aider for AI-assisted coding. It
 leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system navigation.
 
-* **nvim-treesitter**: Provides advanced syntax highlighting, code structure understanding, and indentation based on tree-sitter parsers.
 ## Core Components
 * **Lazy.nvim**: Our plugin manager for efficient and declarative plugin loading.
 * **neo-tree.nvim**: A powerful and highly customizable file explorer plugin for navigating your project structure, managing files, and viewing git status and open buffers.
+* **nvim-treesitter**: Provides advanced syntax highlighting, code structure understanding, and indentation based on tree-sitter parsers.
+* **Telescope**: Fuzzy finder with native FZF integration for fast file and content searching.
 * **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
 * **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
 
@@ -15,6 +16,12 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/your-repo-name.git ~/.config/nvim
+   ```
+2. **Set up API keys:**
+   For AI code completion, you'll need to set up at least one API key. Add to your shell profile (e.g., `~/.bashrc`, `~/.zshrc`):
+   ```bash
+   export CODESTRAL_API_KEY="your-codestral-api-key"
+   # You can also set API keys for other providers like OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY
    ```
 2. **Launch Neovim:**
    Open Neovim. `Lazy.nvim` will automatically detect and install the plugins defined in `lua/plugins/`. If it doesn't, you can manually trigger the installation by running:
@@ -46,10 +53,14 @@ This section documents all custom keybindings for the plugins used in this confi
 
 ### AI Autocomplete (Minuet AI)
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `<Tab>`       | Trigger completion      |
-| `<C-Space>`   | Force completion menu   |
+| Keybinding    | Description                  |
+| :------------ | :--------------------------- |
+| `<A-A>`       | Accept whole AI completion   |
+| `<A-a>`       | Accept one line of completion|
+| `<A-z>`       | Accept n lines (prompts for number) |
+| `<A-[>`       | Previous completion or manually invoke |
+| `<A-]>`       | Next completion or manually invoke |
+| `<A-e>`       | Dismiss completion           |
 
 ### Aider
 
@@ -67,5 +78,23 @@ This section documents all custom keybindings for the plugins used in this confi
 | `<leader>fh`  | Help tags               |
 
 ## Usage
+1. **File Navigation**: Use `<leader>e` to open the file explorer and navigate your project.
+2. **File Search**: Use `<leader>ff` to quickly find files, `<leader>fg` to search content.
+3. **AI Completion**: Start typing and AI suggestions will appear as virtual text. Use the keybindings above to accept or navigate suggestions.
+4. **Code Understanding**: Treesitter provides automatic syntax highlighting and code structure analysis.
 
-(Details to be added)
+## AI Code Completion
+
+This setup includes **Minuet AI**, which provides intelligent code completion using various LLM providers:
+
+- **Default Provider**: Codestral (free and fast)
+- **Supported Languages**: Lua, Python, JavaScript, TypeScript, Go, Rust, and more
+- **Features**: 
+  - Real-time AI-powered code suggestions
+  - Virtual text completion
+  - Multiple completion candidates
+  - Configurable throttling to manage API usage
+
+### Switching AI Providers
+
+You can change the AI provider at runtime using the following commands:
