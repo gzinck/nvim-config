@@ -4,7 +4,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-
     config = function()
       require("minuet").setup({
         -- Use OpenAI-compatible provider
@@ -21,8 +20,9 @@ return {
         -- Provider-specific configuration
         provider_options = {
           openai_compatible = {
-            end_point = "https://llm.lazertechnologies.com",
-            model = "openai/groq/deepseek-r1-distill-llama-70b",
+            end_point = "https://llm.lazertechnologies.com/v1",
+            model = "groq/llama-3.1-8b-instant",
+            name = "Lazer",
             api_key = "OPENAI_API_KEY", -- Set this environment variable
             optional = {
               max_tokens = 256,
@@ -30,6 +30,25 @@ return {
             },
           },
         },
+      })
+
+      -- Create a new autocmd group for Minuet events
+      local group = vim.api.nvim_create_augroup('MinuetEvents', { clear = true })
+
+      vim.api.nvim_create_autocmd({ 'User' }, {
+        pattern = 'MinuetRequestStarted',
+        group = group,
+        callback = function(a)
+          vim.print(a)
+        end,
+      })
+
+      vim.api.nvim_create_autocmd({ 'User' }, {
+        pattern = 'MinuetRequestFinished',
+        group = group,
+        callback = function(a)
+          vim.print(a)
+        end,
       })
     end,
   },
