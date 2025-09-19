@@ -1,4 +1,3 @@
--- lua/plugins/minuet-ai.lua
 return {
   {
     "milanglacier/minuet-ai.nvim",
@@ -24,8 +23,8 @@ return {
             dismiss = "<A-e>",
           },
         },
-        -- Use Codestral as default provider (free and fast)
-        provider = "codestral",
+        -- Use OpenAI-compatible provider
+        provider = "openai",
         -- Reasonable context window for most use cases
         context_window = 8000,
         -- Throttle and debounce to avoid excessive API calls
@@ -37,9 +36,10 @@ return {
         n_completions = 3,
         -- Provider-specific configuration
         provider_options = {
-          codestral = {
-            model = "codestral-latest",
-            api_key = "CODESTRAL_API_KEY", -- Set this environment variable
+          openai = {
+            api_base = "https://llm.lazertechnologies.com",
+            model = "groq/deepseek-r1-distill-llama-70b",
+            api_key = "OPENAI_API_KEY", -- Set this environment variable
             optional = {
               max_tokens = 256,
               stop = { "\n\n" },
