@@ -52,6 +52,15 @@ This section documents all custom keybindings for the plugins used in this confi
 
 (Keybindings to be added)
 
+### Telescope
+
+| Keybinding    | Description             |
+| :------------ | :---------------------- |
+| `<leader>ff`  | Find files              |
+| `<leader>fg`  | Live grep               |
+| `<leader>fb`  | Find buffers            |
+| `<leader>fh`  | Help tags               |
+
 ## Usage
 
 (Details to be added)
