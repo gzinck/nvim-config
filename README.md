@@ -9,6 +9,7 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 * **nvim-treesitter**: Provides advanced syntax highlighting, code structure understanding, and indentation based on tree-sitter parsers.
 * **Telescope**: Fuzzy finder with native FZF integration for fast file and content searching.
 * **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
+* **nvim-lint**: Asynchronous linter plugin for Neovim, providing real-time feedback on code quality and potential issues.
 * **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
 
 ## Installation
@@ -62,6 +63,11 @@ This section documents all custom keybindings for the plugins used in this confi
 | `<A-]>`       | Next completion or manually invoke |
 | `<A-e>`       | Dismiss completion           |
 
+### Linting (nvim-lint)
+
+`nvim-lint` runs asynchronously on file save (`BufWritePost`) to provide real-time diagnostics. No specific keybindings are typically needed for its core functionality, as it integrates with Neovim's built-in diagnostic system.
+
+
 ### Aider
 
 | Keybinding    | Description             |
@@ -82,6 +88,7 @@ This section documents all custom keybindings for the plugins used in this confi
 2. **File Search**: Use `<leader>ff` to quickly find files, `<leader>fg` to search content.
 3. **AI Completion**: Start typing and AI suggestions will appear as virtual text. Use the keybindings above to accept or navigate suggestions.
 4. **Code Understanding**: Treesitter provides automatic syntax highlighting and code structure analysis.
+5. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
 
 ## AI Code Completion
 
@@ -96,5 +103,3 @@ This setup includes **Minuet AI**, which provides intelligent code completion us
   - Configurable throttling to manage API usage
 
 ### Switching AI Providers
-
-You can change the AI provider at runtime using the following commands:
