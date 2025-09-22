@@ -31,8 +31,12 @@ return {
           leave_dirs_open = false,
         },
       },
-      -- You can add more configuration here if desired, e.g., for icons, git status symbols, etc.
-      -- The default configuration is quite extensive, so often a minimal opts table is sufficient.
+      window = {
+        mappings = {
+          ["l"] = "open",
+          ["h"] = "close_node",
+        },
+      },
     },
     config = function(_, opts)
       -- Add nvim-aider integration to Neo-tree if available

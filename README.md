@@ -48,14 +48,14 @@ This section documents all custom keybindings for the plugins used in this confi
 | `<leader>e`   | Toggle Neo-tree file explorer |
 | `<leader>b`   | Toggle Neo-tree buffers list |
 | `<leader>g`   | Toggle Neo-tree Git status view |
-| `h`           | Go to parent directory (or select `..`) |
-| `l`           | Enter selected directory/open file (or select `.`) |
+| `<enter>`     | Expand/close/open |
 | `a`           | Create new file or directory |
 | `r`           | Rename selected file or directory |
 | `d`           | Delete selected file or directory |
-| `c`           | Copy selected file or directory |
+| `y`           | Copy selected file or directory |
 | `m`           | Move selected file or directory |
 | `R`           | Refresh the current directory view |
+| `H`           | Show hidden files |
 
 ### nvim-treesitter
 
