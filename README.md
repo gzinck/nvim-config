@@ -10,6 +10,7 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 * **Telescope**: Fuzzy finder with native FZF integration for fast file and content searching.
 * **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
 * **nvim-lint**: Asynchronous linter plugin for Neovim, providing real-time feedback on code quality and potential issues.
+* **Comment.nvim**: Smart and powerful comment plugin for Neovim, supporting line and block comments, dot repeat, and treesitter.
 * **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
 
 ## Installation
@@ -67,6 +68,15 @@ This section documents all custom keybindings for the plugins used in this confi
 
 `nvim-lint` runs asynchronously on file save (`BufWritePost`) to provide real-time diagnostics. No specific keybindings are typically needed for its core functionality, as it integrates with Neovim's built-in diagnostic system.
 
+### Commenting (Comment.nvim)
+
+| Keybinding    | Description             |
+| :------------ | :---------------------- |
+| `gcc`         | Toggle line comment (Normal mode) |
+| `gbc`         | Toggle block comment (Normal mode) |
+| `gc{motion}`  | Toggle line comment for a motion (Normal mode) |
+| `gb{motion}`  | Toggle block comment for a motion (Normal mode) |
+| `<leader>-/` | Toggle comment for visually selected text (Visual mode) |
 
 ### Aider
 
@@ -89,6 +99,7 @@ This section documents all custom keybindings for the plugins used in this confi
 3. **AI Completion**: Start typing and AI suggestions will appear as virtual text. Use the keybindings above to accept or navigate suggestions.
 4. **Code Understanding**: Treesitter provides automatic syntax highlighting and code structure analysis.
 5. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
+6. **Commenting**: Use `gcc` to toggle comments on a line, or visually select text and press `<leader>-/` to comment it out.
 
 ## AI Code Completion
 
