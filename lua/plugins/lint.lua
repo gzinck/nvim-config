@@ -2,7 +2,7 @@
 return {
   {
     'mfussenegger/nvim-lint',
-    event = { 'BufWritePost', 'BufReadPost', 'InsertLeave' }, -- Trigger linting on these events
+    -- event = { 'BufWritePost', 'BufReadPost', 'InsertLeave' }, -- Trigger linting on these events
     config = function()
       local lint = require('lint')
 
@@ -20,29 +20,29 @@ return {
         -- Ensure the corresponding linter tools are installed on your system.
       }
 
-      -- Autocommand to run linters on file save
-      vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+      -- Autocommand to run linters on file save and on file open/read
+      vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost' }, {
         callback = function()
-          lint.try_lint()
+          lint.try_lint(nil, { ignore_errors = true })
         end,
       })
 
       -- Optional: You can customize how diagnostics are displayed.
       -- For example, to show virtual text for all linters:
-      -- vim.diagnostic.config({
-      --   virtual_text = true,
-      --   signs = true,
-      --   update_in_insert = false,
-      --   severity_sort = true,
-      --   float = {
-      --     focusable = false,
-      --     style = 'minimal',
-      --     border = 'rounded',
-      --     source = 'always',
-      --     header = '',
-      --     prefix = '',
-      --   },
-      -- })
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          focusable = false,
+          style = 'minimal',
+          border = 'rounded',
+          source = 'always',
+          header = '',
+          prefix = '',
+        },
+      })
     end,
   },
 }

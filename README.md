@@ -49,6 +49,7 @@ This section documents all custom keybindings for the plugins used in this confi
 | `<leader>b`   | Toggle Neo-tree buffers list |
 | `<leader>g`   | Toggle Neo-tree Git status view |
 | `<enter>`     | Expand/close/open |
+| `<backspace>` | Go up a directory |
 | `a`           | Create new file or directory |
 | `r`           | Rename selected file or directory |
 | `d`           | Delete selected file or directory |
