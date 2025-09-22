@@ -11,6 +11,7 @@ return {
         -- Enable syntax highlighting
         highlight = {
           enable = true,
+          additional_vim_regex_highlighting = false, -- Recommended by catppuccin for correct highlights
           -- Disable treesitter for large files to prevent performance issues
           disable = function(lang, buf)
             local max_filesize = 100 * 1024 -- 100 KB
