@@ -29,17 +29,29 @@ return {
           require("nvim_aider.neo_tree").setup(opts)
         end,
       },
+      "catppuccin/nvim",
     },
     config = function()
       require("nvim_aider").setup({
         aider_cmd = "aider",
         args = {
-          "--no-auto-commits",
+          -- "--no-auto-commits",
           "--pretty",
           "--stream",
         },
         auto_reload = true,
         notifications = true,
+        theme = {
+          user_input_color = "#b4befe",       -- Catppuccin Mocha: Lavender
+          tool_output_color = "#89b4fa",      -- Catppuccin Mocha: Blue
+          tool_error_color = "#f38ba8",       -- Catppuccin Mocha: Red
+          tool_warning_color = "#f9e2af",     -- Catppuccin Mocha: Yellow
+          assistant_output_color = "#cba6f7", -- Catppuccin Mocha: Mauve
+          completion_menu_color = "#cdd6f4",  -- Catppuccin Mocha: Text
+          completion_menu_bg_color = "#313244", -- Catppuccin Mocha: Surface0
+          completion_menu_current_color = "#181825", -- Catppuccin Mocha: Mantle
+          completion_menu_current_bg_color = "#f5e0dc", -- Catppuccin Mocha: Rosewater
+        },
         win = {
           wo = { winbar = "Aider" },
           style = "nvim_aider",

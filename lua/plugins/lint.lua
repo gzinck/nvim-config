@@ -31,7 +31,12 @@ return {
       -- For example, to show virtual text for all linters:
       vim.diagnostic.config({
         virtual_text = true,
-        signs = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '🚨',
+            [vim.diagnostic.severity.WARN] = '⚠️',
+          },
+        },
         update_in_insert = false,
         severity_sort = true,
         float = {
