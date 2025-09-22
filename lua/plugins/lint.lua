@@ -7,13 +7,13 @@ return {
       local lint = require('lint')
 
       lint.linters_by_ft = {
-        python = { 'flake8', 'mypy', 'pylint', 'ruff' },
-        lua = { 'luacheck', 'selene' },
-        javascript = { 'eslint_d', 'biomejs', 'oxlint' },
-        typescript = { 'eslint_d', 'biomejs', 'oxlint' },
-        markdown = { 'markdownlint-cli2', 'vale' },
-        yaml = { 'yamllint' },
-        sh = { 'shellcheck' },
+        -- python = { 'flake8', 'mypy', 'pylint', 'ruff' },
+        -- lua = { 'luacheck', 'selene' },
+        javascript = { 'eslint' },
+        typescript = { 'eslint' },
+        -- markdown = { 'markdownlint-cli2', 'vale' },
+        -- yaml = { 'yamllint' },
+        -- sh = { 'shellcheck' },
         -- Add more linters for other file types as needed.
         -- Ensure the corresponding linter tools are installed on your system.
       }

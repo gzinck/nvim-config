@@ -90,7 +90,24 @@ This section documents all custom keybindings for the plugins used in this confi
 
 | Keybinding    | Description             |
 | :------------ | :---------------------- |
-| `(To be added)`| (To be added)           |
+| `<leader>a/`  | Toggle Aider            |
+| `<leader>as`  | Send to Aider (Normal/Visual mode) |
+| `<leader>ac`  | Aider Commands          |
+| `<leader>ab`  | Send Buffer             |
+| `<leader>a+`  | Add File                |
+| `<leader>a-`  | Drop File               |
+| `<leader>ar`  | Add Read-Only           |
+| `<leader>aR`  | Reset Session           |
+| `<leader>ad`  | Send Diagnostics        |
+| `<C-\><C-n>`  | Exit terminal mode |
+
+#### Neo-tree Integration
+
+| Keybinding    | Description             |
+| :------------ | :---------------------- |
+| `+`           | Add file to Aider (in Neo-tree) |
+| `-`           | Drop file from Aider (in Neo-tree) |
+| `=`           | Add file as read-only to Aider (in Neo-tree) |
 
 ### Telescope
 
