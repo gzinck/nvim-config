@@ -15,6 +15,20 @@ return {
     },
     dependencies = {
       "folke/snacks.nvim",
+      {
+        "nvim-neo-tree/neo-tree.nvim",
+        opts = function(_, opts)
+          -- Example mapping configuration (already set by default)
+          -- opts.window = {
+          --   mappings = {
+          --     ["+"] = { "nvim_aider_add", desc = "add to aider" },
+          --     ["-"] = { "nvim_aider_drop", desc = "drop from aider" }
+          --     ["="] = { "nvim_aider_add_read_only", desc = "add read-only to aider" }
+          --   }
+          -- }
+          require("nvim_aider.neo_tree").setup(opts)
+        end,
+      },
     },
     config = function()
       require("nvim_aider").setup({
