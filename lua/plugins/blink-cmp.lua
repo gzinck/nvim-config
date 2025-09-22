@@ -22,7 +22,7 @@ return {
       -- C-k: Toggle signature help (if signature.enabled = true)
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      keymap = { preset = 'super-tab' },
+      keymap = { preset = 'default' },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -46,7 +46,6 @@ return {
           'path',
           'snippets',
           'buffer',
-          'supermaven', -- Add Supermaven as a completion source
         },
         providers = {
           minuet = {
@@ -58,14 +57,6 @@ return {
             timeout_ms = 3000,
             score_offset = 50, -- Gives minuet higher priority among suggestions
           },
-          -- Supermaven does not require a custom provider definition here,
-          -- as it registers itself directly with nvim-cmp.
-          -- If you want to customize its score or timeout, you might add it here,
-          -- but typically it's managed by Supermaven's own setup.
-          -- supermaven = {
-          --   name = 'supermaven',
-          --   score_offset = 100, -- Example: give Supermaven higher priority
-          -- },
         },
       },
 
