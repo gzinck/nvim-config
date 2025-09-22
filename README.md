@@ -9,7 +9,7 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 * **nvim-treesitter**: Provides advanced syntax highlighting, code structure understanding, and indentation based on tree-sitter parsers.
 * **Telescope**: Fuzzy finder with native FZF integration for fast file and content searching.
 * **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
-* **nvim-lint**: Asynchronous linter plugin for Neovim, providing real-time feedback on code quality and potential issues.
+* **AI Autocomplete**: Powered by Supermaven (with optional Minuet AI). Provides intelligent code suggestions and completions.
 * **Comment.nvim**: Smart and powerful comment plugin for Neovim, supporting line and block comments, dot repeat, and treesitter.
 * **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
 
@@ -61,16 +61,26 @@ This section documents all custom keybindings for the plugins used in this confi
 
 `nvim-treesitter` provides enhanced syntax highlighting and structural understanding automatically for supported languages. No specific keybindings are typically needed for its core functionality.
 
-### AI Autocomplete (Minuet AI)
+### AI Autocomplete (Minuet AI - *Optional*)
+
+*Note: Minuet AI is disabled by default. See "Switching AI Providers" below to enable it.*
 
 | Keybinding    | Description                  |
 | :------------ | :--------------------------- |
 | `<A-A>`       | Accept whole AI completion   |
 | `<A-a>`       | Accept one line of completion|
 | `<A-z>`       | Accept n lines (prompts for number) |
-| `<A-[>`       | Previous completion or manually invoke |
-| `<A-]>`       | Next completion or manually invoke |
+| `<A-[>`       | Previous completion          |
+| `<A-]>`       | Next completion              |
 | `<A-e>`       | Dismiss completion           |
+
+### Supermaven
+
+| Keybinding    | Description                  |
+| :------------ | :--------------------------- |
+| `<Tab>`       | Accept whole suggestion      |
+| `<C-]>`       | Clear suggestion             |
+| `<C-j>`       | Accept word                  |
 
 ### Linting (nvim-lint)
 
@@ -121,21 +131,65 @@ This section documents all custom keybindings for the plugins used in this confi
 ## Usage
 1. **File Navigation**: Use `<leader>e` to open the file explorer and navigate your project.
 2. **File Search**: Use `<leader>ff` to quickly find files, `<leader>fg` to search content.
-3. **AI Completion**: Start typing and AI suggestions will appear as virtual text. Use the keybindings above to accept or navigate suggestions.
+3. **AI Completion**: Start typing and AI suggestions will appear. Supermaven suggestions are integrated with `blink.cmp`. Use the keybindings above to accept or navigate suggestions.
 4. **Code Understanding**: Treesitter provides automatic syntax highlighting and code structure analysis.
 5. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
 6. **Commenting**: Use `gcc` to toggle comments on a line, or visually select text and press `<leader>-/` to comment it out.
 
 ## AI Code Completion
 
-This setup includes **Minuet AI**, which provides intelligent code completion using various LLM providers:
+This setup primarily uses **Supermaven** for intelligent code completion, with **Minuet AI** available as an optional alternative.
+
+### Supermaven
+
+Supermaven provides fast, high-quality code completion. Upon first use, you will be prompted to either use the Free Tier or activate a Supermaven Pro subscription.
+
+- **Features**: 
+  - Real-time AI-powered code suggestions
+  - Integrated with `blink.cmp` for seamless completion experience
+  - Configurable keymaps for accepting and clearing suggestions
+
+**Supermaven Commands:**
+
+| Command             | Description                                   |
+| :------------------ | :-------------------------------------------- |
+| `:SupermavenStart`  | Start Supermaven                              |
+| `:SupermavenStop`   | Stop Supermaven                               |
+| `:SupermavenRestart`| Restart Supermaven                            |
+| `:SupermavenToggle` | Toggle Supermaven on/off                      |
+| `:SupermavenStatus` | Show current status of Supermaven             |
+| `:SupermavenUseFree`| Switch to the free version of Supermaven      |
+| `:SupermavenUsePro` | Switch to the pro version of Supermaven       |
+| `:SupermavenLogout` | Log out of Supermaven                         |
+| `:SupermavenShowLog`| Show Supermaven logs                          |
+| `:SupermavenClearLog`| Clear Supermaven logs                         |
+
+### Minuet AI (*Optional*)
+
+Minuet AI provides intelligent code completion using various LLM providers:
 
 - **Default Provider**: Codestral (free and fast)
 - **Supported Languages**: Lua, Python, JavaScript, TypeScript, Go, Rust, and more
-- **Features**: 
+- **Features**:
   - Real-time AI-powered code suggestions
   - Virtual text completion
   - Multiple completion candidates
   - Configurable throttling to manage API usage
 
 ### Switching AI Providers
+
+By default, Supermaven is enabled and Minuet AI is disabled. You can switch between them by modifying the `enabled` flag in their respective plugin configurations:
+
+To **enable Minuet AI** and **disable Supermaven**:
+
+1.  Open `lua/plugins/minuet-ai.lua` and change `enabled = false` to `enabled = true`.
+2.  Open `lua/plugins/supermaven.lua` and add `enabled = false` to the plugin definition.
+3.  Restart Neovim.
+
+To **enable Supermaven** and **disable Minuet AI** (default state):
+
+1.  Open `lua/plugins/minuet-ai.lua` and change `enabled = true` to `enabled = false`.
+2.  Open `lua/plugins/supermaven.lua` and ensure `enabled = false` is removed or set to `enabled = true`.
+3.  Restart Neovim.
+
+You can also manage their sources directly in your `blink.cmp` configuration (`lua/plugins/blink-cmp.lua`) if you wish to have both enabled and control their priority or activation.

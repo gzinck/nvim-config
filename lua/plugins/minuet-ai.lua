@@ -1,6 +1,7 @@
 return {
   {
     "milanglacier/minuet-ai.nvim",
+    enabled = false, -- Disable Minuet AI by default, Supermaven is now primary
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

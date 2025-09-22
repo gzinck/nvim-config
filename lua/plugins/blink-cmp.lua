@@ -39,8 +39,15 @@ return {
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
+      -- Note: Supermaven registers itself as a `cmp` source, so we just need to add its name.
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'minuet' },
+        default = {
+          'lsp',
+          'path',
+          'snippets',
+          'buffer',
+          'supermaven', -- Add Supermaven as a completion source
+        },
         providers = {
           minuet = {
             name = 'minuet',
@@ -51,6 +58,14 @@ return {
             timeout_ms = 3000,
             score_offset = 50, -- Gives minuet higher priority among suggestions
           },
+          -- Supermaven does not require a custom provider definition here,
+          -- as it registers itself directly with nvim-cmp.
+          -- If you want to customize its score or timeout, you might add it here,
+          -- but typically it's managed by Supermaven's own setup.
+          -- supermaven = {
+          --   name = 'supermaven',
+          --   score_offset = 100, -- Example: give Supermaven higher priority
+          -- },
         },
       },
 
