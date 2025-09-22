@@ -11,3 +11,10 @@ vim.opt.ignorecase = true         -- Ignore case in search patterns
 vim.opt.smartcase = true          -- Override 'ignorecase' if search pattern contains uppercase characters
 vim.opt.clipboard = "unnamedplus" -- Use the system clipboard for copy and paste
 vim.opt.autoread = true           -- Auto-reload files changed externally (needed for Aider)
+
+-- Add custom filetype detection for .tsx files
+vim.filetype.add({
+  extension = {
+    tsx = "tsx",
+  },
+})

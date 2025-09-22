@@ -11,6 +11,8 @@ return {
         -- lua = { 'luacheck', 'selene' },
         javascript = { 'eslint' },
         typescript = { 'eslint' },
+        tsx = { 'eslint' },
+        jsx = { 'eslint' },
         -- markdown = { 'markdownlint-cli2', 'vale' },
         -- yaml = { 'yamllint' },
         -- sh = { 'shellcheck' },
