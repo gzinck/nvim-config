@@ -35,7 +35,7 @@ return {
       require("nvim_aider").setup({
         aider_cmd = "aider",
         args = {
-          -- "--no-auto-commits",
+          "--no-auto-commits",
           "--pretty",
           "--stream",
         },
