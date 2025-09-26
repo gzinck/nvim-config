@@ -13,6 +13,7 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 * **Comment.nvim**: Smart and powerful comment plugin for Neovim, supporting line and block comments, dot repeat, and treesitter.
 * **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
 * **Git Blame**: Powered by git-blame.nvim. Shows git blame information as virtual text, displaying commit author, date, and summary for each line.
+* **GitLinker**: Powered by gitlinker.nvim. Generate and copy GitHub URLs for files and lines directly to clipboard.
 
 ## Installation
 
@@ -149,6 +150,12 @@ This section documents all custom keybindings for the plugins used in this confi
 | `<leader>fg`  | Live grep               |
 | `<leader>fb`  | Find buffers            |
 | `<leader>fh`  | Help tags               |
+
+### GitLinker
+
+| Keybinding    | Description             |
+| :------------ | :---------------------- |
+| `<leader>gy`  | Copy GitHub URL of the current file/line to clipboard |
 
 ### LSP (Language Server Protocol)
 
