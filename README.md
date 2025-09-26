@@ -12,6 +12,7 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 * **AI Autocomplete**: Powered by Supermaven (with optional Minuet AI). Provides intelligent code suggestions and completions.
 * **Comment.nvim**: Smart and powerful comment plugin for Neovim, supporting line and block comments, dot repeat, and treesitter.
 * **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
+* **Git Blame**: Powered by git-blame.nvim. Shows git blame information as virtual text, displaying commit author, date, and summary for each line.
 
 ## Installation
 
@@ -127,6 +128,19 @@ This section documents all custom keybindings for the plugins used in this confi
 | `-`           | Drop file from Aider (in Neo-tree) |
 | `=`           | Add file as read-only to Aider (in Neo-tree) |
 
+### Git Blame
+
+| Keybinding    | Description             |
+| :------------ | :---------------------- |
+| `:GitBlameToggle` | Toggle git blame on/off |
+| `:GitBlameEnable` | Enable git blame messages |
+| `:GitBlameDisable` | Disable git blame messages |
+| `:GitBlameOpenCommitURL` | Open commit URL in browser |
+| `:GitBlameCopySHA` | Copy SHA hash to clipboard |
+| `:GitBlameCopyCommitURL` | Copy commit URL to clipboard |
+| `:GitBlameOpenFileURL` | Open file URL in browser |
+| `:GitBlameCopyFileURL` | Copy file URL to clipboard |
+
 ### Telescope
 
 | Keybinding    | Description             |
@@ -170,6 +184,7 @@ For more details, see [this blog post](https://gpanders.com/blog/whats-new-in-ne
 5. **Code Understanding**: Treesitter provides automatic syntax highlighting and code structure analysis.
 6. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
 7. **Commenting**: Use `gcc` to toggle comments on a line, or visually select text and press `<leader>-/` to comment it out.
+8. **Git Blame**: Git blame information appears as virtual text at the end of each line, showing the commit author, date, and summary. Use `:GitBlameToggle` to turn it on/off as needed.
 
 ## AI Code Completion
 
