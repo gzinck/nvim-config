@@ -26,6 +26,17 @@ return {
           lint.try_lint(nil, { ignore_errors = true })
         end,
       })
+
+      -- Autocommand to run linters on file save and on file open/read
+      vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+        callback = function(args)
+          -- Format the buffer using conform
+          require('conform').format({ async = false, lsp_format = 'fallback' })
+
+          -- Lint the buffer
+          lint.try_lint(nil, { ignore_errors = true })
+        end,
+      })
     end,
   },
 }
