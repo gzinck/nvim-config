@@ -4,16 +4,18 @@ This Neovim configuration is designed to provide a powerful development environm
 leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system navigation.
 
 ## Core Components
-* **Lazy.nvim**: Our plugin manager for efficient and declarative plugin loading.
-* **neo-tree.nvim**: A powerful and highly customizable file explorer plugin for navigating your project structure, managing files, and viewing git status and open buffers.
-* **nvim-treesitter**: Provides advanced syntax highlighting, code structure understanding, and indentation based on tree-sitter parsers.
-* **Telescope**: Fuzzy finder with native FZF integration for fast file and content searching.
-* **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
-* **AI Autocomplete**: Powered by Supermaven (with optional Minuet AI). Provides intelligent code suggestions and completions.
-* **Comment.nvim**: Smart and powerful comment plugin for Neovim, supporting line and block comments, dot repeat, and treesitter.
-* **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
-* **Git Blame**: Powered by git-blame.nvim. Shows git blame information as virtual text, displaying commit author, date, and summary for each line.
-* **GitLinker**: Powered by gitlinker.nvim. Generate and copy GitHub URLs for files and lines directly to clipboard.
+
+- **Lazy.nvim**: Our plugin manager for efficient and declarative plugin loading.
+- **neo-tree.nvim**: A powerful and highly customizable file explorer plugin for navigating your project structure, managing files, and viewing git status and open buffers.
+- **nvim-treesitter**: Provides advanced syntax highlighting, code structure understanding, and indentation based on tree-sitter parsers.
+- **Telescope**: Fuzzy finder with native FZF integration for fast file and content searching.
+- **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
+- **AI Autocomplete**: Powered by Supermaven (with optional Minuet AI). Provides intelligent code suggestions and completions.
+- **Comment.nvim**: Smart and powerful comment plugin for Neovim, supporting line and block comments, dot repeat, and treesitter.
+- **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
+- **Git Blame**: Powered by git-blame.nvim. Shows git blame information as virtual text, displaying commit author, date, and summary for each line.
+- **GitLinker**: Powered by gitlinker.nvim. Generate and copy GitHub URLs for files and lines directly to clipboard.
+- **Conform.nvim**: Lightweight yet powerful formatter plugin that provides consistent code formatting with prettier for web technologies.
 
 ## Installation
 
@@ -41,7 +43,7 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
    ```bash
    brew install ripgrep
    ```
-6. **Install Aider:**
+7. **Install Aider:**
    If you want to use Aider as your AI pair programmer, install it [using the docs](https://aider.chat/). The nvim integrations are already included in the config.
 
 ## Keybindings
@@ -52,20 +54,20 @@ The `<leader>` key is configured to `,` by default.
 
 ### Neo-tree
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `<leader>e`   | Toggle Neo-tree file explorer |
-| `<leader>b`   | Toggle Neo-tree buffers list |
-| `<leader>g`   | Toggle Neo-tree Git status view |
-| `<enter>`     | Expand/close/open |
-| `<backspace>` | Go up a directory |
-| `a`           | Create new file or directory |
-| `r`           | Rename selected file or directory |
-| `d`           | Delete selected file or directory |
-| `y`           | Copy selected file or directory |
-| `m`           | Move selected file or directory |
+| Keybinding    | Description                        |
+| :------------ | :--------------------------------- |
+| `<leader>e`   | Toggle Neo-tree file explorer      |
+| `<leader>b`   | Toggle Neo-tree buffers list       |
+| `<leader>g`   | Toggle Neo-tree Git status view    |
+| `<enter>`     | Expand/close/open                  |
+| `<backspace>` | Go up a directory                  |
+| `a`           | Create new file or directory       |
+| `r`           | Rename selected file or directory  |
+| `d`           | Delete selected file or directory  |
+| `y`           | Copy selected file or directory    |
+| `m`           | Move selected file or directory    |
 | `R`           | Refresh the current directory view |
-| `H`           | Toggle show hidden files |
+| `H`           | Toggle show hidden files           |
 
 ### nvim-treesitter
 
@@ -73,11 +75,11 @@ The `<leader>` key is configured to `,` by default.
 
 ### Supermaven
 
-| Keybinding    | Description                  |
-| :------------ | :--------------------------- |
-| `<Tab>`       | Accept whole suggestion      |
-| `<C-]>`       | Clear suggestion             |
-| `<C-j>`       | Accept word                  |
+| Keybinding | Description             |
+| :--------- | :---------------------- |
+| `<Tab>`    | Accept whole suggestion |
+| `<C-]>`    | Clear suggestion        |
+| `<C-j>`    | Accept word             |
 
 ### Linting (nvim-lint)
 
@@ -87,37 +89,37 @@ Update the `lint.linters_by_ft` table in `lua/plugins/lint.lua` to add or remove
 
 ### Commenting (Comment.nvim)
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `gcc`         | Toggle line comment (Normal mode) |
-| `gbc`         | Toggle block comment (Normal mode) |
-| `gc{motion}`  | Toggle line comment for a motion (Normal mode) |
-| `gb{motion}`  | Toggle block comment for a motion (Normal mode) |
+| Keybinding   | Description                                     |
+| :----------- | :---------------------------------------------- |
+| `gcc`        | Toggle line comment (Normal mode)               |
+| `gbc`        | Toggle block comment (Normal mode)              |
+| `gc{motion}` | Toggle line comment for a motion (Normal mode)  |
+| `gb{motion}` | Toggle block comment for a motion (Normal mode) |
 
 ### Aider
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `<leader>a/`  | Toggle Aider            |
-| `<leader>as`  | Send to Aider (Normal/Visual mode) |
-| `<leader>ac`  | Aider Commands          |
-| `<leader>ab`  | Send Buffer             |
-| `<leader>a+`  | Add File                |
-| `<leader>a-`  | Drop File               |
-| `<leader>ar`  | Add Read-Only           |
-| `<leader>aR`  | Reset Session           |
-| `<leader>ad`  | Send Diagnostics        |
-| `<C-\><C-n>`  | Exit terminal mode      |
+| Keybinding   | Description                        |
+| :----------- | :--------------------------------- |
+| `<leader>a/` | Toggle Aider                       |
+| `<leader>as` | Send to Aider (Normal/Visual mode) |
+| `<leader>ac` | Aider Commands                     |
+| `<leader>ab` | Send Buffer                        |
+| `<leader>a+` | Add File                           |
+| `<leader>a-` | Drop File                          |
+| `<leader>ar` | Add Read-Only                      |
+| `<leader>aR` | Reset Session                      |
+| `<leader>ad` | Send Diagnostics                   |
+| `<C-\><C-n>` | Exit terminal mode                 |
 
 #### Neo-tree Integration
 
 When navigating in neo-tree, you can use the following shortcuts:
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `+`           | Add file to Aider (in Neo-tree) |
-| `-`           | Drop file from Aider (in Neo-tree) |
-| `=`           | Add file as read-only to Aider (in Neo-tree) |
+| Keybinding | Description                                  |
+| :--------- | :------------------------------------------- |
+| `+`        | Add file to Aider (in Neo-tree)              |
+| `-`        | Drop file from Aider (in Neo-tree)           |
+| `=`        | Add file as read-only to Aider (in Neo-tree) |
 
 ### Git Blame
 
@@ -134,40 +136,47 @@ When navigating in neo-tree, you can use the following shortcuts:
 
 ### Telescope
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `<leader>ff`  | Find files              |
-| `<leader>fg`  | Live grep               |
-| `<leader>fb`  | Find buffers            |
-| `<leader>fh`  | Help tags               |
+| Keybinding   | Description  |
+| :----------- | :----------- |
+| `<leader>ff` | Find files   |
+| `<leader>fg` | Live grep    |
+| `<leader>fb` | Find buffers |
+| `<leader>fh` | Help tags    |
 
 ### GitLinker
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `<leader>gy`  | Copy GitHub URL of the current file/line to clipboard |
+| Keybinding   | Description                                           |
+| :----------- | :---------------------------------------------------- |
+| `<leader>gy` | Copy GitHub URL of the current file/line to clipboard |
+
+### Conform (Code Formatting)
+
+| Keybinding     | Description                  |
+| :------------- | :--------------------------- |
+| `<leader>fo`   | Format current buffer        |
+| `:ConformInfo` | Show formatter info and logs |
 
 ### LSP (Language Server Protocol)
 
 TypeScript/JavaScript LSP support is configured using Neovim 0.11's new simplified LSP setup. The following key mappings are available when LSP is active:
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `<leader>d`   | Show diagnostics        |
-| `gd`          | Go to definition        |
-| `gri`         | Go to implementation    |
-| `grt`         | Go to type definition   |
-| `grr`         | Find references         |
-| `grn`         | Rename symbol           |
-| `gra`         | Code actions            |
-| `gO`          | Document symbols        |
-| `K`           | Show hover documentation|
-| `<C-k>`       | Show signature help     |
-| `<C-S>`       | Signature help (Insert mode) |
-| `[d`          | Previous diagnostic     |
-| `]d`          | Next diagnostic         |
-| `[D`          | First diagnostic        |
-| `]D`          | Last diagnostic         |
+| Keybinding  | Description                  |
+| :---------- | :--------------------------- |
+| `<leader>d` | Show diagnostics             |
+| `gd`        | Go to definition             |
+| `gri`       | Go to implementation         |
+| `grt`       | Go to type definition        |
+| `grr`       | Find references              |
+| `grn`       | Rename symbol                |
+| `gra`       | Code actions                 |
+| `gO`        | Document symbols             |
+| `K`         | Show hover documentation     |
+| `<C-k>`     | Show signature help          |
+| `<C-S>`     | Signature help (Insert mode) |
+| `[d`        | Previous diagnostic          |
+| `]d`        | Next diagnostic              |
+| `[D`        | First diagnostic             |
+| `]D`        | Last diagnostic              |
 
 For more details, see [this blog post](https://gpanders.com/blog/whats-new-in-neovim-0-11/#more-default-mappings)
 
@@ -181,6 +190,7 @@ For more details, see [this blog post](https://gpanders.com/blog/whats-new-in-ne
 6. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
 7. **Commenting**: Use `gcc` to toggle comments on a line, or visually select text and press `<leader>-/` to comment it out.
 8. **Git Blame**: Git blame information appears as virtual text at the end of each line, showing the commit author, date, and summary. Use `:GitBlameToggle` to turn it on/off as needed.
+9. **Code Formatting**: Files are automatically formatted on save when a prettier configuration is detected. Use `<leader>fo` to manually format the current buffer.
 
 ## AI Code Completion
 
@@ -192,16 +202,15 @@ Supermaven provides fast, high-quality code completion. Upon first use, you will
 
 **Supermaven Commands:**
 
-| Command              | Description                                   |
-| :------------------- | :-------------------------------------------- |
-| `:SupermavenStart`   | Start Supermaven                              |
-| `:SupermavenStop`    | Stop Supermaven                               |
-| `:SupermavenRestart` | Restart Supermaven                            |
-| `:SupermavenToggle`  | Toggle Supermaven on/off                      |
-| `:SupermavenStatus`  | Show current status of Supermaven             |
-| `:SupermavenUseFree` | Switch to the free version of Supermaven      |
-| `:SupermavenUsePro`  | Switch to the pro version of Supermaven       |
-| `:SupermavenLogout`  | Log out of Supermaven                         |
-| `:SupermavenShowLog` | Show Supermaven logs                          |
-| `:SupermavenClearLog`| Clear Supermaven logs                         |
-
+| Command               | Description                              |
+| :-------------------- | :--------------------------------------- |
+| `:SupermavenStart`    | Start Supermaven                         |
+| `:SupermavenStop`     | Stop Supermaven                          |
+| `:SupermavenRestart`  | Restart Supermaven                       |
+| `:SupermavenToggle`   | Toggle Supermaven on/off                 |
+| `:SupermavenStatus`   | Show current status of Supermaven        |
+| `:SupermavenUseFree`  | Switch to the free version of Supermaven |
+| `:SupermavenUsePro`   | Switch to the pro version of Supermaven  |
+| `:SupermavenLogout`   | Log out of Supermaven                    |
+| `:SupermavenShowLog`  | Show Supermaven logs                     |
+| `:SupermavenClearLog` | Clear Supermaven logs                    |
