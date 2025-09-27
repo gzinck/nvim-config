@@ -38,6 +38,10 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
    npm install -g typescript-language-server typescript
    npm install -g vscode-langservers-extracted  # for ESLint LSP
    ```
+6. **Install ripgrep for Telescope's live grep functionality:**
+   ```bash
+   brew install ripgrep
+   ```
 6. **Install Aider:**
    If you want to use Aider as your AI pair programmer, install it [using the docs](https://aider.chat/). The nvim integrations are already included in the config.
 
