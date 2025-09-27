@@ -1,7 +1,6 @@
 # Neovim AI-Enhanced Setup
 
-This Neovim configuration is designed to provide a powerful development environment with a focus on AI-driven autocomplete and seamless integration with Aider for AI-assisted coding. It
-leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system navigation.
+This Neovim configuration is designed to provide a powerful development environment with a focus on AI-driven autocomplete and seamless integration with Aider and Claude Code for AI-assisted coding. There's also some awesome file navigation tools like Telescope and Neo-Tree, as well as some git utils for blame and copying URLs. Typescript linting and formatting is built-in 💪
 
 ## Core Components
 
@@ -46,6 +45,17 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
    ```
 7. **Install Aider:**
    If you want to use Aider as your AI pair programmer, install it [using the docs](https://aider.chat/). The nvim integrations are already included in the config.
+
+## Usage
+
+1. **File Navigation**: Use `<leader>e` to open the file explorer and navigate your project.
+2. **File Search**: Use `<leader>ff` to quickly find files, `<leader>fg` to search content.
+3. **TypeScript/JavaScript Development**: Use `gri` to go to implementation, `grr` to find references, and other LSP shortcuts for code navigation.
+4. **AI Completion**: Start typing and AI suggestions will appear. Supermaven suggestions are integrated with `blink.cmp`. Use the keybindings above to accept or navigate suggestions.
+5. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
+6. **Commenting**: Use `gcc` to toggle comments on a line, or visually select text and press `<leader>-/` to comment it out.
+7. **Git Blame**: Git blame information appears as virtual text at the end of each line, showing the commit author, date, and summary. Use `:GitBlameToggle` to turn it on/off as needed.
+8. **Code Formatting**: Files are automatically formatted on save when a prettier configuration is detected. Use `<leader>fo` to manually format the current buffer.
 
 ## Keybindings
 
@@ -186,18 +196,6 @@ TypeScript/JavaScript LSP support is configured using Neovim 0.11's new simplifi
 | `]D`        | Last diagnostic              |
 
 For more details, see [this blog post](https://gpanders.com/blog/whats-new-in-neovim-0-11/#more-default-mappings)
-
-## Usage
-
-1. **File Navigation**: Use `<leader>e` to open the file explorer and navigate your project.
-2. **File Search**: Use `<leader>ff` to quickly find files, `<leader>fg` to search content.
-3. **TypeScript/JavaScript Development**: Use `gri` to go to implementation, `grr` to find references, and other LSP shortcuts for code navigation.
-4. **AI Completion**: Start typing and AI suggestions will appear. Supermaven suggestions are integrated with `blink.cmp`. Use the keybindings above to accept or navigate suggestions.
-5. **Code Understanding**: Treesitter provides automatic syntax highlighting and code structure analysis.
-6. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
-7. **Commenting**: Use `gcc` to toggle comments on a line, or visually select text and press `<leader>-/` to comment it out.
-8. **Git Blame**: Git blame information appears as virtual text at the end of each line, showing the commit author, date, and summary. Use `:GitBlameToggle` to turn it on/off as needed.
-9. **Code Formatting**: Files are automatically formatted on save when a prettier configuration is detected. Use `<leader>fo` to manually format the current buffer.
 
 ## AI Code Completion
 
