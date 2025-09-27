@@ -38,7 +38,7 @@ return {
         -- Terminal window settings
         window = {
           split_ratio = 0.3,      -- Percentage of screen for the terminal window
-          position = "botright",  -- Position: "botright", "topleft", "vertical", "float"
+          position = "vertical",  -- Position: "botright", "topleft", "vertical", "float"
           enter_insert = true,    -- Enter insert mode when opening Claude Code
           hide_numbers = true,    -- Hide line numbers in terminal window
           hide_signcolumn = true, -- Hide sign column in terminal window

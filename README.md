@@ -9,10 +9,11 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 - **neo-tree.nvim**: A powerful and highly customizable file explorer plugin for navigating your project structure, managing files, and viewing git status and open buffers.
 - **nvim-treesitter**: Provides advanced syntax highlighting, code structure understanding, and indentation based on tree-sitter parsers.
 - **Telescope**: Fuzzy finder with native FZF integration for fast file and content searching.
-- **AI Autocomplete**: Powered by Minuet AI. Provides intelligent code suggestions and completions.
 - **AI Autocomplete**: Powered by Supermaven (with optional Minuet AI). Provides intelligent code suggestions and completions.
 - **Comment.nvim**: Smart and powerful comment plugin for Neovim, supporting line and block comments, dot repeat, and treesitter.
-- **Aider Integration**: Enables AI-assisted code editing and collaboration directly within Neovim.
+- **AI-Assistant Integration with Claude Code and Aider**: Enables AI-assisted code editing and collaboration directly within Neovim.
+  - **Claude Code** is better for complex tasks. Requires a paid subscription.
+  - **Aider** is great for quick, cheap, simple tasks that can be passed to any model. Requires managing the context by explicitly referencing which files to add. Also requires API keys set up in your Aider config.
 - **Git Blame**: Powered by git-blame.nvim. Shows git blame information as virtual text, displaying commit author, date, and summary for each line.
 - **GitLinker**: Powered by gitlinker.nvim. Generate and copy GitHub URLs for files and lines directly to clipboard.
 - **Conform.nvim**: Lightweight yet powerful formatter plugin that provides consistent code formatting with prettier for web technologies.
@@ -120,6 +121,12 @@ When navigating in neo-tree, you can use the following shortcuts:
 | `+`        | Add file to Aider (in Neo-tree)              |
 | `-`        | Drop file from Aider (in Neo-tree)           |
 | `=`        | Add file as read-only to Aider (in Neo-tree) |
+
+### Claude Code
+
+| Keybinding | Description          |
+| :--------- | :------------------- |
+| `<C-,>`    | Toggle claude window |
 
 ### Git Blame
 
