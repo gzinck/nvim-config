@@ -19,13 +19,7 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git ~/.config/nvim
-   ```
-2. **Set up API keys:**
-   For AI code completion, you'll need to set up at least one API key. Add to your shell profile (e.g., `~/.bashrc`, `~/.zshrc`):
-   ```bash
-   export CODESTRAL_API_KEY="your-codestral-api-key"
-   # You can also set API keys for other providers like OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY
+   git clone https://github.com/gzinck/nvim-config.git ~/.config/nvim
    ```
 2. **Launch Neovim:**
    Open Neovim. `Lazy.nvim` will automatically detect and install the plugins defined in `lua/plugins/`. If it doesn't, you can manually trigger the installation by running:
@@ -44,11 +38,14 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
    npm install -g typescript-language-server typescript
    npm install -g vscode-langservers-extracted  # for ESLint LSP
    ```
-
+6. **Install Aider:**
+   If you want to use Aider as your AI pair programmer, install it [using the docs](https://aider.chat/). The nvim integrations are already included in the config.
 
 ## Keybindings
 
 This section documents all custom keybindings for the plugins used in this configuration.
+
+The `<leader>` key is configured to `,` by default.
 
 ### Neo-tree
 
@@ -65,24 +62,11 @@ This section documents all custom keybindings for the plugins used in this confi
 | `y`           | Copy selected file or directory |
 | `m`           | Move selected file or directory |
 | `R`           | Refresh the current directory view |
-| `H`           | Show hidden files |
+| `H`           | Toggle show hidden files |
 
 ### nvim-treesitter
 
 `nvim-treesitter` provides enhanced syntax highlighting and structural understanding automatically for supported languages. No specific keybindings are typically needed for its core functionality.
-
-### AI Autocomplete (Minuet AI - *Optional*)
-
-*Note: Minuet AI is disabled by default. See "Switching AI Providers" below to enable it.*
-
-| Keybinding    | Description                  |
-| :------------ | :--------------------------- |
-| `<A-A>`       | Accept whole AI completion   |
-| `<A-a>`       | Accept one line of completion|
-| `<A-z>`       | Accept n lines (prompts for number) |
-| `<A-[>`       | Previous completion          |
-| `<A-]>`       | Next completion              |
-| `<A-e>`       | Dismiss completion           |
 
 ### Supermaven
 
@@ -96,6 +80,10 @@ This section documents all custom keybindings for the plugins used in this confi
 
 `nvim-lint` runs asynchronously on file save (`BufWritePost`) to provide real-time diagnostics. No specific keybindings are typically needed for its core functionality, as it integrates with Neovim's built-in diagnostic system.
 
+Update the `lint.linters_by_ft` table in `lua/plugins/lint.lua` to add or remove linters for different file types.
+
+Note: some linters can be directly integrated into Neovim's language server protocol (LSP) support, which is a more efficient and reliable way to run linters (e.g., `eslint`). Do not add linters to nvim-lint that are already supported by the LSP.
+
 ### Commenting (Comment.nvim)
 
 | Keybinding    | Description             |
@@ -104,7 +92,6 @@ This section documents all custom keybindings for the plugins used in this confi
 | `gbc`         | Toggle block comment (Normal mode) |
 | `gc{motion}`  | Toggle line comment for a motion (Normal mode) |
 | `gb{motion}`  | Toggle block comment for a motion (Normal mode) |
-| `<leader>-/` | Toggle comment for visually selected text (Visual mode) |
 
 ### Aider
 
@@ -119,9 +106,11 @@ This section documents all custom keybindings for the plugins used in this confi
 | `<leader>ar`  | Add Read-Only           |
 | `<leader>aR`  | Reset Session           |
 | `<leader>ad`  | Send Diagnostics        |
-| `<C-\><C-n>`  | Exit terminal mode |
+| `<C-\><C-n>`  | Exit terminal mode      |
 
 #### Neo-tree Integration
+
+When navigating in neo-tree, you can use the following shortcuts:
 
 | Keybinding    | Description             |
 | :------------ | :---------------------- |
@@ -131,16 +120,16 @@ This section documents all custom keybindings for the plugins used in this confi
 
 ### Git Blame
 
-| Keybinding    | Description             |
-| :------------ | :---------------------- |
-| `:GitBlameToggle` | Toggle git blame on/off |
-| `:GitBlameEnable` | Enable git blame messages |
-| `:GitBlameDisable` | Disable git blame messages |
-| `:GitBlameOpenCommitURL` | Open commit URL in browser |
-| `:GitBlameCopySHA` | Copy SHA hash to clipboard |
+| Keybinding               | Description                  |
+| :----------------------- | :--------------------------- |
+| `:GitBlameToggle`        | Toggle git blame on/off      |
+| `:GitBlameEnable`        | Enable git blame messages    |
+| `:GitBlameDisable`       | Disable git blame messages   |
+| `:GitBlameOpenCommitURL` | Open commit URL in browser   |
+| `:GitBlameCopySHA`       | Copy SHA hash to clipboard   |
 | `:GitBlameCopyCommitURL` | Copy commit URL to clipboard |
-| `:GitBlameOpenFileURL` | Open file URL in browser |
-| `:GitBlameCopyFileURL` | Copy file URL to clipboard |
+| `:GitBlameOpenFileURL`   | Open file URL in browser     |
+| `:GitBlameCopyFileURL`   | Copy file URL to clipboard   |
 
 ### Telescope
 
@@ -164,13 +153,10 @@ TypeScript/JavaScript LSP support is configured using Neovim 0.11's new simplifi
 | Keybinding    | Description             |
 | :------------ | :---------------------- |
 | `gd`          | Go to definition        |
-| `gD`          | Go to declaration       |
-| `gi`          | Go to implementation    |
-| `gt`          | Go to type definition   |
-| `gr`          | Find references         |
-| `grn`         | Rename symbol           |
-| `grr`         | Find references         |
 | `gri`         | Go to implementation    |
+| `grt`         | Go to type definition   |
+| `grr`         | Find references         |
+| `grn`         | Rename symbol           |
 | `gra`         | Code actions            |
 | `gO`          | Document symbols        |
 | `K`           | Show hover documentation|
@@ -184,9 +170,10 @@ TypeScript/JavaScript LSP support is configured using Neovim 0.11's new simplifi
 For more details, see [this blog post](https://gpanders.com/blog/whats-new-in-neovim-0-11/#more-default-mappings)
 
 ## Usage
+
 1. **File Navigation**: Use `<leader>e` to open the file explorer and navigate your project.
 2. **File Search**: Use `<leader>ff` to quickly find files, `<leader>fg` to search content.
-3. **TypeScript/JavaScript Development**: Use `gd` to go to definition, `gr` to find references, and other LSP shortcuts for code navigation.
+3. **TypeScript/JavaScript Development**: Use `gri` to go to implementation, `grr` to find references, and other LSP shortcuts for code navigation.
 4. **AI Completion**: Start typing and AI suggestions will appear. Supermaven suggestions are integrated with `blink.cmp`. Use the keybindings above to accept or navigate suggestions.
 5. **Code Understanding**: Treesitter provides automatic syntax highlighting and code structure analysis.
 6. **Code Linting**: Files are automatically linted on save, with diagnostics displayed via Neovim's built-in diagnostic system.
@@ -195,58 +182,24 @@ For more details, see [this blog post](https://gpanders.com/blog/whats-new-in-ne
 
 ## AI Code Completion
 
-This setup primarily uses **Supermaven** for intelligent code completion, with **Minuet AI** available as an optional alternative.
+This setup uses **Supermaven** for intelligent code completion.
 
 ### Supermaven
 
 Supermaven provides fast, high-quality code completion. Upon first use, you will be prompted to either use the Free Tier or activate a Supermaven Pro subscription.
 
-- **Features**: 
-  - Real-time AI-powered code suggestions
-  - Integrated with `blink.cmp` for seamless completion experience
-  - Configurable keymaps for accepting and clearing suggestions
-
 **Supermaven Commands:**
 
-| Command             | Description                                   |
-| :------------------ | :-------------------------------------------- |
-| `:SupermavenStart`  | Start Supermaven                              |
-| `:SupermavenStop`   | Stop Supermaven                               |
-| `:SupermavenRestart`| Restart Supermaven                            |
-| `:SupermavenToggle` | Toggle Supermaven on/off                      |
-| `:SupermavenStatus` | Show current status of Supermaven             |
-| `:SupermavenUseFree`| Switch to the free version of Supermaven      |
-| `:SupermavenUsePro` | Switch to the pro version of Supermaven       |
-| `:SupermavenLogout` | Log out of Supermaven                         |
-| `:SupermavenShowLog`| Show Supermaven logs                          |
+| Command              | Description                                   |
+| :------------------- | :-------------------------------------------- |
+| `:SupermavenStart`   | Start Supermaven                              |
+| `:SupermavenStop`    | Stop Supermaven                               |
+| `:SupermavenRestart` | Restart Supermaven                            |
+| `:SupermavenToggle`  | Toggle Supermaven on/off                      |
+| `:SupermavenStatus`  | Show current status of Supermaven             |
+| `:SupermavenUseFree` | Switch to the free version of Supermaven      |
+| `:SupermavenUsePro`  | Switch to the pro version of Supermaven       |
+| `:SupermavenLogout`  | Log out of Supermaven                         |
+| `:SupermavenShowLog` | Show Supermaven logs                          |
 | `:SupermavenClearLog`| Clear Supermaven logs                         |
 
-### Minuet AI (*Optional*)
-
-Minuet AI provides intelligent code completion using various LLM providers:
-
-- **Default Provider**: Codestral (free and fast)
-- **Supported Languages**: Lua, Python, JavaScript, TypeScript, Go, Rust, and more
-- **Features**:
-  - Real-time AI-powered code suggestions
-  - Virtual text completion
-  - Multiple completion candidates
-  - Configurable throttling to manage API usage
-
-### Switching AI Providers
-
-By default, Supermaven is enabled and Minuet AI is disabled. You can switch between them by modifying the `enabled` flag in their respective plugin configurations:
-
-To **enable Minuet AI** and **disable Supermaven**:
-
-1.  Open `lua/plugins/minuet-ai.lua` and change `enabled = false` to `enabled = true`.
-2.  Open `lua/plugins/supermaven.lua` and add `enabled = false` to the plugin definition.
-3.  Restart Neovim.
-
-To **enable Supermaven** and **disable Minuet AI** (default state):
-
-1.  Open `lua/plugins/minuet-ai.lua` and change `enabled = true` to `enabled = false`.
-2.  Open `lua/plugins/supermaven.lua` and ensure `enabled = false` is removed or set to `enabled = true`.
-3.  Restart Neovim.
-
-You can also manage their sources directly in your `blink.cmp` configuration (`lua/plugins/blink-cmp.lua`) if you wish to have both enabled and control their priority or activation.

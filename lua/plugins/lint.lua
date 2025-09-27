@@ -2,6 +2,8 @@
 return {
   {
     'mfussenegger/nvim-lint',
+    -- TODO: enable specific linters and turn this on again
+    enabled = false,
     -- event = { 'BufWritePost', 'BufReadPost', 'InsertLeave' }, -- Trigger linting on these events
     config = function()
       local lint = require('lint')
@@ -9,10 +11,10 @@ return {
       lint.linters_by_ft = {
         -- python = { 'flake8', 'mypy', 'pylint', 'ruff' },
         -- lua = { 'luacheck', 'selene' },
-        javascript = { 'eslint' },
-        typescript = { 'eslint' },
-        tsx = { 'eslint' },
-        jsx = { 'eslint' },
+        -- javascript = { 'eslint' },
+        -- typescript = { 'eslint' },
+        -- tsx = { 'eslint' },
+        -- jsx = { 'eslint' },
         -- markdown = { 'markdownlint-cli2', 'vale' },
         -- yaml = { 'yamllint' },
         -- sh = { 'shellcheck' },
@@ -28,7 +30,6 @@ return {
       })
 
       -- Optional: You can customize how diagnostics are displayed.
-      -- For example, to show virtual text for all linters:
       vim.diagnostic.config({
         virtual_text = true,
         signs = {

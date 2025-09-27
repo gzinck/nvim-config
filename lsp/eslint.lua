@@ -1,7 +1,7 @@
 return {
   cmd = { 'vscode-eslint-language-server', '--stdio' },
   root_markers = { '.eslintrc.js', '.eslintrc.json', '.eslintrc', 'package.json' },
-  filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'tsx', 'jsx' },
   settings = {
     eslint = {
       enable = true,
