@@ -156,6 +156,7 @@ TypeScript/JavaScript LSP support is configured using Neovim 0.11's new simplifi
 
 | Keybinding    | Description             |
 | :------------ | :---------------------- |
+| `<leader>e`   | Show diagnostics        |
 | `gd`          | Go to definition        |
 | `gri`         | Go to implementation    |
 | `grt`         | Go to type definition   |

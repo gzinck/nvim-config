@@ -39,13 +39,6 @@ return {
         },
         sections = {
           lualine_x = {
-            -- Minuet AI is disabled by default, so its lualine component is removed.
-            -- If you re-enable Minuet AI, you can uncomment this line.
-            -- {
-            --   require 'minuet.lualine',
-            --   display_name = 'model',
-            --   display_on_idle = true,
-            -- },
             'encoding',
             'filetype',
           },
