@@ -36,7 +36,6 @@ leverages `Lazy.nvim` for plugin management and `neo-tree.nvim` for file system 
    For TypeScript/JavaScript support, install the required language servers:
    ```bash
    npm install -g typescript-language-server typescript
-   npm install -g vscode-langservers-extracted  # for ESLint LSP
    ```
 6. **Install ripgrep for Telescope's live grep functionality:**
    ```bash
@@ -85,8 +84,6 @@ The `<leader>` key is configured to `,` by default.
 `nvim-lint` runs asynchronously on file save (`BufWritePost`) to provide real-time diagnostics. No specific keybindings are typically needed for its core functionality, as it integrates with Neovim's built-in diagnostic system.
 
 Update the `lint.linters_by_ft` table in `lua/plugins/lint.lua` to add or remove linters for different file types.
-
-Note: some linters can be directly integrated into Neovim's language server protocol (LSP) support, which is a more efficient and reliable way to run linters (e.g., `eslint`). Do not add linters to nvim-lint that are already supported by the LSP.
 
 ### Commenting (Comment.nvim)
 
@@ -156,7 +153,7 @@ TypeScript/JavaScript LSP support is configured using Neovim 0.11's new simplifi
 
 | Keybinding    | Description             |
 | :------------ | :---------------------- |
-| `<leader>e`   | Show diagnostics        |
+| `<leader>d`   | Show diagnostics        |
 | `gd`          | Go to definition        |
 | `gri`         | Go to implementation    |
 | `grt`         | Go to type definition   |
