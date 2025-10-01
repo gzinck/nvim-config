@@ -35,9 +35,12 @@ This Neovim configuration is designed to provide a powerful development environm
    After the initial Neovim launch and plugin installation, run `:TSUpdate` to install the language parsers for `nvim-treesitter`. This is crucial for syntax highlighting and other features to work correctly.
 
 5. **Install LSP Servers:**
-   For TypeScript/JavaScript support, install the required language servers:
+   For language support, install the required language servers:
    ```bash
+   # TypeScript/JavaScript
    npm install -g typescript-language-server typescript
+   # Python
+   npm install -g pyright
    ```
 6. **Install ripgrep for Telescope's live grep functionality:**
    ```bash

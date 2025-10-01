@@ -13,7 +13,7 @@ vim.opt.clipboard = "unnamedplus" -- Use the system clipboard for copy and paste
 vim.opt.autoread = true           -- Auto-reload files changed externally (needed for Aider)
 
 -- LSP Configuration
-vim.lsp.enable({'ts_ls'})
+vim.lsp.enable({'ts_ls', 'pyright'})
 
 -- Enable LSP auto-completion
 vim.api.nvim_create_autocmd('LspAttach', {
