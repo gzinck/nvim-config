@@ -41,6 +41,7 @@ This Neovim configuration is designed to provide a powerful development environm
    npm install -g typescript-language-server typescript
    # Python
    npm install -g pyright
+   # For Java, download jdtls from https://download.eclipse.org/jdtls/snapshots/?d, put it in ~/.config/language-servers, and add the bin folder to your PATH
    ```
 6. **Install ripgrep for Telescope's live grep functionality:**
    ```bash
