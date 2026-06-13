@@ -1,8 +1,7 @@
 return {
   {
     'stevearc/conform.nvim',
-    event = { 'BufWritePre' }, -- Load before saving
-    cmd = { 'ConformInfo' }, -- Load when running ConformInfo command
+    cmd = { 'ConformInfo' },
     keys = {
       {
         '<leader>fo',
@@ -26,10 +25,6 @@ return {
           html = { 'prettier' },
         },
         -- Format on save
-        format_on_save = {
-          timeout_ms = 500,
-          lsp_format = "fallback",
-        },
       })
     end,
   },

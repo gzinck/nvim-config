@@ -34,7 +34,7 @@ return {
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'catppuccin',
+          theme = 'auto',
         },
         sections = {
           lualine_x = {
